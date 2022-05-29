@@ -1,0 +1,1303 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="WIN-B0EA97AS0V8\Administrator"
+  DTS:CreatorComputerName="WIN-B0EA97AS0V8"
+  DTS:CreationDate="5/18/2022 12:43:01 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{378D9885-7C37-4461-B642-321DD7C375CE}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="AlimentationTableSalesHeader"
+  DTS:DTSID="{CFAB2EF6-4AD2-4E15-888F-CEFFBC76D87D}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[10.188.255.83.AdventureWorks2019.sa]"
+      DTS:ObjectName="10.188.255.83.AdventureWorks2019.sa"
+      DTS:DTSID="{FF2A0842-B57D-4757-B134-C1E5A87ECE97}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=10.188.255.83;User ID=sa;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuWDn1HdexkOsCaNT0IKwjAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAf+jnFk2ToFj3LHxl0zKyzSoA6tlZwlG/7gUGvCfew5wAAAAAOgAAAAAIAACAAAADBibceYIlZ1e9sx61rYAvXv+wUUp4TU0SJXdFWlM9NgSAAAADoZTRFceUveiL+3ZBg68EB9XbQ/HgP3BWxDM99hG5SREAAAADIKft/nDSHxg9x4mF5aBjqZxMwaar7yP2/+RVtxNiAhDGLRhvsKyesHkyR+nFPBfh3hX9+v8wyi6XrOGdBtjjR</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[WIN-B0EA97AS0V8.AdventureWorks2012]"
+      DTS:ObjectName="WIN-B0EA97AS0V8.AdventureWorks2012"
+      DTS:DTSID="{55C977C5-9F00-4949-A332-22771EFF4BAF}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=WIN-B0EA97AS0V8;Initial Catalog=AdventureWorks2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\dataIntegrationService"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dataIntegrationService"
+      DTS:DTSID="{6CFFE0C5-03EE-46DC-9625-4507022EC1E4}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\dataIntegrationService\2015"
+              name="2015"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\dataIntegrationService\2015.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dataIntegrationService\2015.Inputs[Derived Column Input].Columns[OrderDate]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="OrderDate"
+                      cachedDataType="dbTimeStamp">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">(DT_DATE)("2020/02/02")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">(DT_DATE)("2020/02/02")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dataIntegrationService\2015.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\dataIntegrationService\2015.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\dataIntegrationService\2015.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\dataIntegrationService\2015.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dataIntegrationService\2015.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\dataIntegrationService\2015.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\2015.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\dataIntegrationService\2015.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\dataIntegrationService\Multicast"
+              name="Multicast"
+              componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\dataIntegrationService\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dataIntegrationService\Multicast.Outputs[Multicast Output 1]"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\dataIntegrationService\Multicast.Inputs[Multicast Input 1]"
+                  deleteOutputOnPathDetached="true">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\dataIntegrationService\Multicast.Outputs[Multicast Output 3]"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\dataIntegrationService\Multicast.Inputs[Multicast Input 1]"
+                  deleteOutputOnPathDetached="true"
+                  dangling="true">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\dataIntegrationService\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[SalesOrderHeader_TEMP]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dataIntegrationService\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[WIN-B0EA97AS0V8.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[WIN-B0EA97AS0V8.AdventureWorks2012]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevisionNumber]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevisionNumber]"
+                      cachedName="RevisionNumber"
+                      cachedDataType="ui1" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      cachedName="OrderDate"
+                      cachedDataType="dbTimeStamp" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DueDate]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
+                      cachedName="DueDate"
+                      cachedDataType="dbTimeStamp" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipDate]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                      cachedName="ShipDate"
+                      cachedDataType="dbTimeStamp" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      cachedName="Status"
+                      cachedDataType="ui1" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OnlineOrderFlag]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[OnlineOrderFlag]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnlineOrderFlag]"
+                      cachedName="OnlineOrderFlag"
+                      cachedDataType="bool" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesOrderNumber]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      cachedName="SalesOrderNumber"
+                      cachedDataType="wstr"
+                      cachedLength="25" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PurchaseOrderNumber]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderNumber]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderNumber]"
+                      cachedName="PurchaseOrderNumber"
+                      cachedDataType="wstr"
+                      cachedLength="25" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AccountNumber]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountNumber]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                      cachedName="AccountNumber"
+                      cachedDataType="wstr"
+                      cachedLength="15" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      cachedName="CustomerID"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesPersonID]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      cachedName="SalesPersonID"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TerritoryID]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[TerritoryID]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      cachedName="TerritoryID"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BillToAddressID]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToAddressID]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToAddressID]"
+                      cachedName="BillToAddressID"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipToAddressID]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToAddressID]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToAddressID]"
+                      cachedName="ShipToAddressID"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ShipMethodID]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipMethodID]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipMethodID]"
+                      cachedName="ShipMethodID"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditCardID]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardID]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardID]"
+                      cachedName="CreditCardID"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreditCardApprovalCode]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardApprovalCode]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardApprovalCode]"
+                      cachedName="CreditCardApprovalCode"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrencyRateID]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyRateID]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyRateID]"
+                      cachedName="CurrencyRateID"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SubTotal]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubTotal]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      cachedName="SubTotal"
+                      cachedDataType="cy" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TaxAmt]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      cachedName="TaxAmt"
+                      cachedDataType="cy" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Freight]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      cachedName="Freight"
+                      cachedDataType="cy" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TotalDue]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                      cachedName="TotalDue"
+                      cachedDataType="cy" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Comment]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      cachedName="Comment"
+                      cachedDataType="wstr"
+                      cachedLength="128" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rowguid]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      cachedName="rowguid"
+                      cachedDataType="guid" />
+                    <inputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      cachedName="ModifiedDate"
+                      cachedDataType="dbTimeStamp" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                      name="SalesOrderID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevisionNumber]"
+                      name="RevisionNumber"
+                      dataType="ui1" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      name="OrderDate"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DueDate]"
+                      name="DueDate"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipDate]"
+                      name="ShipDate"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      name="Status"
+                      dataType="ui1" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag"
+                      dataType="bool" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      name="SalesOrderNumber"
+                      dataType="wstr"
+                      length="25" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber"
+                      dataType="wstr"
+                      length="25" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                      name="AccountNumber"
+                      dataType="wstr"
+                      length="15" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      name="CustomerID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      name="SalesPersonID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      name="TerritoryID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BillToAddressID]"
+                      name="BillToAddressID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipToAddressID]"
+                      name="ShipToAddressID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipMethodID]"
+                      name="ShipMethodID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardID]"
+                      name="CreditCardID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode"
+                      dataType="str"
+                      length="15"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyRateID]"
+                      name="CurrencyRateID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      name="SubTotal"
+                      dataType="cy" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      name="TaxAmt"
+                      dataType="cy" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      name="Freight"
+                      dataType="cy" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                      name="TotalDue"
+                      dataType="cy" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="wstr"
+                      length="128" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      name="rowguid"
+                      dataType="guid" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      name="ModifiedDate"
+                      dataType="dbTimeStamp" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dataIntegrationService\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\dataIntegrationService\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\dataIntegrationService\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\dataIntegrationService\OLE DB Source"
+              name="OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[Sales].[SalesOrderHeader]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dataIntegrationService\OLE DB Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[10.188.255.83.AdventureWorks2019.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[10.188.255.83.AdventureWorks2019.sa]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                      name="SalesOrderID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                      name="RevisionNumber"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevisionNumber]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                      name="DueDate"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[DueDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                      name="ShipDate"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                      name="Status"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[OnlineOrderFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OnlineOrderFlag]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderNumber]"
+                      length="25"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[PurchaseOrderNumber]"
+                      length="25"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOrderNumber]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountNumber]"
+                      name="AccountNumber"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountNumber]"
+                      length="15"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountNumber]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      name="SalesPersonID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[TerritoryID]"
+                      name="TerritoryID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[TerritoryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToAddressID]"
+                      name="BillToAddressID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[BillToAddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BillToAddressID]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToAddressID]"
+                      name="ShipToAddressID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipToAddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipToAddressID]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipMethodID]"
+                      name="ShipMethodID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ShipMethodID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipMethodID]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardID]"
+                      name="CreditCardID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardID]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreditCardApprovalCode]"
+                      length="15"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardApprovalCode]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyRateID]"
+                      name="CurrencyRateID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrencyRateID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyRateID]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubTotal]"
+                      name="SubTotal"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubTotal]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubTotal]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                      name="TaxAmt"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[TaxAmt]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                      name="Freight"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[Freight]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                      name="TotalDue"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[Comment]"
+                      length="128"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      name="rowguid"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
+                      name="SalesOrderID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevisionNumber]"
+                      name="RevisionNumber"
+                      dataType="ui1" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      name="OrderDate"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DueDate]"
+                      name="DueDate"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipDate]"
+                      name="ShipDate"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                      name="Status"
+                      dataType="ui1" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag"
+                      dataType="bool" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderNumber]"
+                      name="SalesOrderNumber"
+                      dataType="wstr"
+                      length="25" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber"
+                      dataType="wstr"
+                      length="25" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountNumber]"
+                      name="AccountNumber"
+                      dataType="wstr"
+                      length="15" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      name="CustomerID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      name="SalesPersonID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]"
+                      name="TerritoryID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BillToAddressID]"
+                      name="BillToAddressID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipToAddressID]"
+                      name="ShipToAddressID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ShipMethodID]"
+                      name="ShipMethodID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardID]"
+                      name="CreditCardID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode"
+                      dataType="str"
+                      length="15"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrencyRateID]"
+                      name="CurrencyRateID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubTotal]"
+                      name="SubTotal"
+                      dataType="cy" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TaxAmt]"
+                      name="TaxAmt"
+                      dataType="cy" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                      name="Freight"
+                      dataType="cy" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]"
+                      name="TotalDue"
+                      dataType="cy" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Comment]"
+                      name="Comment"
+                      dataType="wstr"
+                      length="128" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      name="rowguid"
+                      dataType="guid" />
+                    <externalMetadataColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      name="ModifiedDate"
+                      dataType="dbTimeStamp" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                      name="SalesOrderID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                      name="RevisionNumber"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevisionNumber]"
+                      dataType="ui1" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                      name="DueDate"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DueDate]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                      name="ShipDate"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipDate]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                      name="Status"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                      dataType="ui1" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OnlineOrderFlag]"
+                      name="OnlineOrderFlag"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OnlineOrderFlag]"
+                      dataType="bool" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderNumber]"
+                      length="25"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseOrderNumber]"
+                      name="PurchaseOrderNumber"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PurchaseOrderNumber]"
+                      length="25"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountNumber]"
+                      name="AccountNumber"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountNumber]"
+                      length="15"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      name="SalesPersonID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                      name="TerritoryID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BillToAddressID]"
+                      name="BillToAddressID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BillToAddressID]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipToAddressID]"
+                      name="ShipToAddressID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipToAddressID]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipMethodID]"
+                      name="ShipMethodID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ShipMethodID]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardID]"
+                      name="CreditCardID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardID]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardApprovalCode]"
+                      name="CreditCardApprovalCode"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreditCardApprovalCode]"
+                      length="15"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyRateID]"
+                      name="CurrencyRateID"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrencyRateID]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubTotal]"
+                      name="SubTotal"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubTotal]"
+                      dataType="cy" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                      name="TaxAmt"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TaxAmt]"
+                      dataType="cy" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                      name="Freight"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                      dataType="cy" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                      name="TotalDue"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                      dataType="cy" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      name="Comment"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Comment]"
+                      length="128"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      name="rowguid"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      dataType="guid" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\dataIntegrationService.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\dataIntegrationService\2015.Outputs[Derived Column Output]"
+              endId="Package\dataIntegrationService\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\dataIntegrationService.Paths[Multicast Output 1]"
+              name="Multicast Output 1"
+              startId="Package\dataIntegrationService\Multicast.Outputs[Multicast Output 1]"
+              endId="Package\dataIntegrationService\2015.Inputs[Derived Column Input]" />
+            <path
+              refId="Package\dataIntegrationService.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\dataIntegrationService\OLE DB Source.Outputs[OLE DB Source Output]"
+              endId="Package\dataIntegrationService\Multicast.Inputs[Multicast Input 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="185,42"
+          Id="Package\dataIntegrationService"
+          TopLeft="454,143" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\dataIntegrationService">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\dataIntegrationService\OLE DB Source"
+          TopLeft="170,43" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\dataIntegrationService\Multicast"
+          TopLeft="312,126" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\dataIntegrationService\2015"
+          TopLeft="471,205" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\dataIntegrationService\OLE DB Destination"
+          TopLeft="370,349" />
+        <EdgeLayout
+          Id="Package\dataIntegrationService.Paths[OLE DB Source Output]"
+          TopLeft="244.5,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127,41"
+              Start="0,0"
+              End="127,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="123,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123,20.5"
+                    Point2="127,20.5"
+                    Point3="127,24.5" />
+                  <mssgle:LineSegment
+                    End="127,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dataIntegrationService.Paths[Multicast Output 1]"
+          TopLeft="390,168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162,37"
+              Start="0,0"
+              End="162,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.0945273631841" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.0945273631841"
+                    Point2="0,15.0945273631841"
+                    Point3="4,15.0945273631841" />
+                  <mssgle:LineSegment
+                    End="158,15.0945273631841" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158,15.0945273631841"
+                    Point2="162,15.0945273631841"
+                    Point3="162,19.0945273631841" />
+                  <mssgle:LineSegment
+                    End="162,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dataIntegrationService.Paths[Derived Column Output]"
+          TopLeft="552,247">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-97,102"
+              Start="0,0"
+              End="-97,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="-4,51" />
+                  <mssgle:LineSegment
+                    End="-93,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-93,51"
+                    Point2="-97,51"
+                    Point3="-97,55" />
+                  <mssgle:LineSegment
+                    End="-97,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dataIntegrationService\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dataIntegrationService\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
